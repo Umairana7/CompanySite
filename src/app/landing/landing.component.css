@@ -1,0 +1,49 @@
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLoop 20s linear infinite;
+}
+
+.scroll-content {
+  display: flex;
+}
+
+@keyframes scrollLoop {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+span.text-blue-400 {
+  transition: opacity 0.5s ease-in-out;
+}
+.scroll-track {
+  display: flex;
+  gap: 10px;
+  will-change: transform;
+}
+
+.animated-heading {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-down {
+  opacity: 0;
+    transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out; /* initial state, gsap will animate */
+}
+.slide-in-left {
+  opacity: 0; /* initial state, gsap will animate */
+}
+.slide-in-right {
+  opacity: 0; /* initial state, gsap will animate */
+}

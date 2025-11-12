@@ -1,0 +1,597 @@
+<!-- 🌐 Navbar Section -->
+<nav class=" fixed top-0 left-0 w-full z-50 px-8 flex items-center justify-between min-h-[70px] bg-[#030b3d] border-b border-white/40 ">
+  <!-- Logo -->
+  <div class="flex items-center space-x-2">
+    <img src="assets/Logo.png" alt="Logo" class=" h-6">
+  </div>
+
+  <!-- Hamburger Button (Mobile) -->
+  <button id="menu-btn" class="text-white md:hidden focus:outline-none flex items-center"
+    onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- Desktop Menu -->
+  <ul class="hidden md:flex items-center space-x-6 text-white text-xs">
+   
+    <li>
+      <button class="relative after:content-[''] after:absolute after:w-0 after:h-[2px]
+         after:bg-blue-400 after:left-0 after:-bottom-1 after:transition-all
+         after:duration-300 hover:after:w-full text-white bg-transparent border-none outline-none cursor-pointer">
+        Home
+      </button>
+    </li>
+    <li>
+      <a routerLink="/service" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px]
+               after:bg-blue-400 after:left-0 after:-bottom-1 after:transition-all
+               after:duration-300 hover:after:w-full">
+        Services
+      </a>
+    </li>
+    <li>
+      <button routerLink="/about" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px]
+         after:bg-blue-400 after:left-0 after:-bottom-1 after:transition-all
+         after:duration-300 hover:after:w-full text-white bg-transparent border-none outline-none cursor-pointer">
+        About Us
+      </button>
+    </li>
+     <li>
+      <a href="#Work-section" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px]
+               after:bg-blue-400 after:left-0 after:-bottom-1 after:transition-all
+               after:duration-300 hover:after:w-full">
+        Why Us
+      </a>
+    </li>
+  </ul>
+
+  <!-- Button -->
+  <button (click)="scrollToSection('talk')" class="hidden md:block bg-[#637eff] hover:bg-[#7894ff] text-white text-xs
+           px-4 py-2 rounded transition duration-300 transform hover:-translate-y-1
+           hover:shadow-lg hover:shadow-blue-500/40" style="
+    background: linear-gradient(90deg, #0C2984 0%, #67BFDF 100%);
+  ">
+    Contact Us
+  </button>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#030b3d] text-white
+           flex flex-col items-center space-y-4 py-4 md:hidden z-50">
+    <a href="#" class="hover:text-blue-400">How it works</a>
+    <a href="#" class="hover:text-blue-400">Services</a>
+    <a routerLink='/about' class="hover:text-blue-400">About Us</a>
+    <button class="text-white px-6 py-3 rounded-md font-medium transition-all shadow-md hover:shadow-lg" style="
+    background: linear-gradient(90deg, #0C2984 0%, #67BFDF 100%);
+  ">
+      Contact Us
+    </button>
+  </div>
+
+</nav>
+
+
+<!-- 💻 Hero Section -->
+<section
+  class="relative flex flex-col md:flex-row items-center justify-between min-h-[80vh] md:min-h-screen text-white w-screen overflow-hidden"
+  style="background-color: #648BFF1A;"
+>
+  <!-- Centered Ellipse (fixed size) -->
+  <img
+    src="assets/Ellipse2.png"
+    alt="Background Ellipse"
+    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] object-contain opacity-40 pointer-events-none"
+    style="z-index: 0;"
+  />
+
+  <!-- Left Side -->
+  <div class="relative z-10 w-full md:w-1/2 p-8 md:pl-16 text-center md:text-left">
+    <h1 class="animated-heading">
+      On demand, <span class="text-blue-400">{{ currentWord }}</span> <br />
+      <span class="animated-gradient">design & development</span>
+    </h1>
+
+    <p class="mt-4 text-gray-300 text-sm md:text-base">
+      Unlimited revisions and requests. <br class="hidden md:block" />
+      Fast delivery & Free consultation.
+    </p>
+
+    <div class="mt-6 flex justify-center md:justify-start space-x-4">
+      <button
+        (click)="scrollToSection('talk')"
+        class="animated-button border border-gray-400 hover:bg-white hover:text-black text-white text-sm px-5 py-2 rounded transition duration-300 flex items-center space-x-2"
+      style="background: linear-gradient(90deg, #0C2984 0%, #67BFDF 100%);">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 fill-current"
+          viewBox="0 0 24 24"
+        >
+          <path d="M8 5v14l11-7z" />
+        </svg>
+        <span>Explore More</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Right Side: Lottie animation -->
+  <div class="relative z-10 w-full md:w-1/2 flex justify-center items-center p-4 fade-up">
+    <ng-lottie [options]="lottieOptions" width="400px" height="400px"></ng-lottie>
+  </div>
+</section>
+
+
+<!-- Tech Stack Floating Bar -->
+<div class="relative z-20 -mt-8 overflow-hidden bg-white/15 backdrop-blur-lg rounded-xl px-4 sm:px-6 py-4 
+    shadow-[0_0_15px_rgba(255,255,255,0.15)] border border-white/20 w-[80%] md:w-[50%] mx-auto fade-up">
+  <div class="scroll-track flex items-center gap-10 whitespace-nowrap fade-up">
+    <!-- Duplicate scroll-content for infinite loop -->
+    <div class="scroll-content flex items-center gap-10">
+      <div class="flex items-center gap-2">
+        <img src="assets/angular.png" alt="Angular" class="h-6 sm:h-8">
+        <span class="text-white text-xs sm:text-sm font-semibold">Angular</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <img src="assets/react.png" alt="React" class="h-6 sm:h-8">
+        <span class="text-white text-xs sm:text-sm font-semibold">React</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <img src="assets/python.png" alt="Python" class="h-6 sm:h-8">
+        <span class="text-white text-xs sm:text-sm font-semibold">Python</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <img src="assets/js.png" alt="JavaScript" class="h-6 sm:h-8">
+        <span class="text-white text-xs sm:text-sm font-semibold">JavaScript</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <img src="assets/flutter.png" alt="Flutter" class="h-6 sm:h-8">
+        <span class="text-white text-xs sm:text-sm font-semibold">Flutter</span>
+      </div>
+    </div>
+
+    <!-- Duplicate set for infinite scroll -->
+    <div class="scroll-content flex items-center gap-10">
+      <!-- Repeat same content as above -->
+      <div class="flex items-center gap-2">
+        <img src="assets/angular.png" alt="Angular" class="h-6 sm:h-8">
+        <span class="text-white text-xs sm:text-sm font-semibold">Angular</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <img src="assets/react.png" alt="React" class="h-6 sm:h-8">
+        <span class="text-white text-xs sm:text-sm font-semibold">React</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <img src="assets/python.png" alt="Python" class="h-6 sm:h-8">
+        <span class="text-white text-xs sm:text-sm font-semibold">Python</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <img src="assets/js.png" alt="JavaScript" class="h-6 sm:h-8">
+        <span class="text-white text-xs sm:text-sm font-semibold">JavaScript</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <img src="assets/flutter.png" alt="Flutter" class="h-6 sm:h-8">
+        <span class="text-white text-xs sm:text-sm font-semibold">Flutter</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Text -->
+<section class="text-white py-20 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center fade-up">
+    <!-- Left Content -->
+    <div>
+      <h2 class="text-3xl font-bold mb-4 fade-up">
+        We Can Help You Solve Your Problem Through Our Services
+      </h2>
+      <p class="text-gray-300 leading-relaxed mb-6">
+        At NovaSphere, we specialize in crafting innovative digital solutions that drive growth and performance. Our
+        services include Web & Mobile App Development, Full Stack Development, UI/UX Design, Digital Marketing, SEO, and
+        Quality Assurance.
+      </p>
+
+      <ul class="bg-white rounded-lg p-6 space-y-3 border border-blue-700 text-black">
+        <h2 class="text-3xl text-blue-600 font-bold mb-4 items-center justify-center">
+          Our Vision
+        </h2>
+        <p class="text-black-400 leading-relaxed mb-6">
+          To become a trusted global digital partner that empowers businesses through innovation, creativity, and
+          technology shaping a future where every brand thrives in the digital world.
+        </p>
+      </ul>
+    </div>
+
+    <!-- Right Image + Stats -->
+    <div class="flex flex-col items-center space-y-6">
+      <!-- Image -->
+      <img
+        src="assets/landing.png"
+        alt="Our Team"
+        class="rounded-2xl w-full max-w-md card-shadow"
+      />
+
+      <!-- Stats Cards with Vertical Lines -->
+      <div class="flex justify-between items-center w-full max-w-md bg-[#A6BDFF]/80 rounded-xl shadow-[0_0_8px_rgba(100,139,255,0.3)] border border-white/10">
+        
+        <!-- Card 1 -->
+        <div class="flex-1 flex flex-col items-center justify-center p-4">
+          <h2 class="count text-xl font-bold text-white" data-target="200">0</h2>
+          <p class="text-white text-sm text-center">Happy Clients</p>
+        </div>
+
+        <!-- Divider -->
+        <div class="h-10 w-[1px] bg-white/40"></div>
+
+        <!-- Card 2 -->
+        <div class="flex-1 flex flex-col items-center justify-center p-4">
+          <h2 class="count text-xl font-bold text-white" data-target="300">0</h2>
+          <p class="text-white text-sm text-center">Projects</p>
+        </div>
+
+        <!-- Divider -->
+        <div class="h-10 w-[1px] bg-white/40"></div>
+
+        <!-- Card 3 -->
+        <div class="flex-1 flex flex-col items-center justify-center p-4">
+          <h2 class="count text-xl font-bold text-white" data-target="99">99%</h2>
+          <p class="text-white text-sm text-center">Success Rate</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section
+ class="relative flex flex-col md:flex-row items-center justify-between min-h-[80vh] md:min-h-screen text-white w-screen overflow-hidden"
+  style="background-color: #648BFF1A;"
+>
+  <!-- Background Ellipse -->
+  <img
+    src="assets/Ellipse2.png"
+    alt="Background Ellipse"
+    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[900px] md:h-[900px] object-contain opacity-40 pointer-events-none z-0"
+  />
+
+<div class="relative max-w-7xl mx-auto px-4">
+  <!-- Heading centered on top -->
+  <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+
+  <div class="grid md:grid-cols-3 gap-12 items-start">
+    <!-- Left: Cards -->
+    <div class="md:col-span-2 grid sm:grid-cols-2 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-white text-black rounded-xl p-6 sm:p-8 shadow-lg hover:-translate-y-1 transition-transform">
+        <div class="flex items-center mb-4 space-x-3">
+          <div class="w-10 h-10 bg-[#A6BDFF] rounded-md flex items-center justify-center">
+            <img src="assets/Group3.png" alt="Vector" class="w-6 h-6">
+          </div>
+          <h3 class="font-bold text-base">UI Design</h3>
+        </div>
+        <p class="text-sm leading-relaxed text-gray-600 mt-2">
+          We design intuitive, user-centered interfaces that blend creativity with functionality, delivering seamless digital experiences that captivate users and elevate brands.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white text-black rounded-xl p-6 sm:p-8 shadow-lg hover:-translate-y-1 transition-transform">
+        <div class="flex items-center mb-4 space-x-3">
+          <div class="w-10 h-10 bg-[#A6BDFF] rounded-md flex items-center justify-center">
+            <img src="assets/Vector16.png" alt="Vector" class="w-6 h-6">
+          </div>
+          <h3 class="font-bold text-base">Brand Identity</h3>
+        </div>
+        <p class="text-sm leading-relaxed text-gray-600 mt-2">
+          We build memorable brands that tell your story with purpose and style, crafting visual identities that connect, inspire, and leave a lasting impression.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white text-black rounded-xl p-6 sm:p-8 shadow-lg hover:-translate-y-1 transition-transform">
+        <div class="flex items-center mb-4 space-x-3">
+          <div class="w-10 h-10 bg-[#A6BDFF] rounded-md flex items-center justify-center">
+            <img src="assets/Vector15.png" alt="Vector" class="w-6 h-6">
+          </div>
+          <h3 class="font-bold text-base">Web Development</h3>
+        </div>
+        <p class="text-sm leading-relaxed text-gray-600 mt-2">
+          We turn ideas into powerful digital products — fast, secure, and scalable — delivering seamless performance and real-world impact.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white text-black rounded-xl p-6 sm:p-8 shadow-lg hover:-translate-y-1 transition-transform">
+        <div class="flex items-center mb-4 space-x-3">
+          <div class="w-10 h-10 bg-[#A6BDFF] rounded-md flex items-center justify-center">
+            <img src="assets/Vector14.png" alt="Vector" class="w-6 h-6">
+          </div>
+          <h3 class="font-bold text-base">Digital Marketing</h3>
+        </div>
+        <p class="text-sm leading-relaxed text-gray-600 mt-2">
+          We help brands grow online through data-driven strategies, creative storytelling, and impactful campaigns that boost visibility and conversions.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: Text and Button -->
+    <div class="flex flex-col justify-start space-y-8">
+      <p class="text-sm text-gray-300 leading-relaxed">
+        We craft digital experiences that inspire, engage, and perform. From stunning web and mobile apps to seamless full-stack solutions, intuitive UI/UX design, powerful digital marketing, precise SEO, and reliable quality assurance — every service is designed to turn ideas into impact.
+      </p>
+
+      <div class="border-t border-dotted border-gray-400 w-2/3 mx-auto"></div>
+<br><br>
+<br>
+ <button 
+  class="hidden md:block w-36 text-[10px] py-1.5 rounded transition duration-300 transform hover:-translate-y-1
+         hover:shadow-lg hover:shadow-blue-500/40 mx-auto"
+  style="background: linear-gradient(90deg, #0C2984 0%, #67BFDF 100%);"
+>
+  Explore More Services
+</button>
+
+
+    </div>
+  </div>
+</div>
+
+
+</section>
+
+
+
+<section class="relative  text-white py-16 flex flex-col items-center overflow-hidden">
+
+  <h2 class="text-2xl md:text-3xl font-extrabold text-center z-10">
+    Great design, <br class="md:hidden" /> Without the overhead
+  </h2>
+  <p class="text-gray-300 text-sm md:text-base mt-3 leading-relaxed text-center max-w-2xl z-10">
+    Our team has over a decade of experience building consumer and enterprise
+
+    solutions for two-sided marketplaces and Software as a Service companies.
+  </p>
+  <!-- EXISTING SECTION ABOVE -->
+
+  <!-- 6 White Cards -->
+  <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 z-10 max-w-6xl mx-auto px-4 fade-up fade-down">
+
+    <!-- CARD 1 -->
+    <div
+      class="bg-white text-black rounded-xl p-4 relative shadow-md hover:scale-[1.02] transition duration-300 flex flex-col items-start">
+
+      <!-- Vector in square box -->
+      <div class="w-10 h-10 bg-[#A6BDFF] rounded-md flex items-center justify-center">
+        <img src="assets/Vector.png" alt="Vector" class="w-6 h-6">
+      </div>
+
+      <!-- Heading and Text -->
+      <h3 class="text-lg font-semibold mt-3">Creative Design</h3>
+      <p class="text-sm text-gray-600 mt-1">Modern, intuitive and user-centered designs.</p>
+    </div>
+    <!-- CARD 2 -->
+    <div
+      class="bg-white text-black rounded-xl p-4 shadow-md hover:scale-[1.02] transition duration-300 flex flex-col items-start">
+      <div class="w-10 h-10 bg-[#A6BDFF] rounded-md flex items-center justify-center">
+        <img src="assets/vector1.png" alt="Vector" class="w-6 h-6">
+      </div>
+      <h3 class="text-lg font-semibold mt-3">Web Development</h3>
+      <p class="text-sm text-gray-600 mt-1">Scalable and secure frontend & backend solutions.</p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div
+      class="bg-white text-black rounded-xl p-4 shadow-md hover:scale-[1.02] transition duration-300 flex flex-col items-start">
+      <div class="w-10 h-10 bg-[#A6BDFF] rounded-md flex items-center justify-center">
+        <img src="assets/vector2.png" alt="Vector" class="w-6 h-6">
+      </div>
+      <h3 class="text-lg font-semibold mt-3">Automation</h3>
+      <p class="text-sm text-gray-600 mt-1">Save time by automating repetitive processes.</p>
+    </div>
+
+    <!-- CARD 4 -->
+    <div
+      class="bg-white text-black rounded-xl p-4 shadow-md hover:scale-[1.02] transition duration-300 flex flex-col items-start">
+      <div class="w-10 h-10 bg-[#A6BDFF] rounded-md flex items-center justify-center">
+        <img src="assets/vector3.png" alt="Vector" class="w-6 h-6">
+      </div>
+      <h3 class="text-lg font-semibold mt-3">SEO Optimization</h3>
+      <p class="text-sm text-gray-600 mt-1">Boost your visibility with smart search strategies.</p>
+    </div>
+
+    <!-- CARD 5 -->
+    <div
+      class="bg-white text-black rounded-xl p-4 shadow-md hover:scale-[1.02] transition duration-300 flex flex-col items-start">
+      <div class="w-10 h-10 bg-[#A6BDFF] rounded-md flex items-center justify-center">
+        <img src="assets/vector4.png" alt="Vector" class="w-6 h-6">
+      </div>
+      <h3 class="text-lg font-semibold mt-3">App Development</h3>
+      <p class="text-sm text-gray-600 mt-1">Native and cross-platform app solutions.</p>
+    </div>
+
+    <!-- CARD 6 -->
+    <div
+      class="bg-white text-black rounded-xl p-4 shadow-md hover:scale-[1.02] transition duration-300 flex flex-col items-start">
+      <div class="w-10 h-10 bg-[#A6BDFF] rounded-md flex items-center justify-center">
+        <img src="assets/vector5.png" alt="Vector" class="w-6 h-6">
+      </div>
+      <h3 class="text-lg font-semibold mt-3">Support & Maintenance</h3>
+      <p class="text-sm text-gray-600 mt-1">Continuous improvement and long-term support.</p>
+    </div>
+
+  </div>
+</section>
+<!-- 🛠️ How It Works Section -->
+<section id="Work-section" class="relative py-16 text-white px-4 sm:px-6 lg:px-16">
+  <div class="max-w-6xl mx-auto flex flex-col lg:flex-row lg:justify-start gap-12 lg:items-start">
+    <!-- LEFT SIDE -->
+    <div class="lg:w-2/3">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">How It Works</h2>
+      <p class="text-gray-300 mb-1">No unnecessary bureaucracy.<br> We focus on getting your ideas and problems solved..</p>
+      
+
+      <ul class="space-y-2 text-red-500">
+        <li class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          <span class="text-gray-200">No long hiring process</span>
+        </li>
+        <li class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          <span class="text-gray-200">No contract negotiations</span>
+        </li>
+        <li class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          <span class="text-gray-200">No long term commitment</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- STEPS DIV (Compact, Next to Left Div) -->
+    <div class="lg:w-auto flex flex-col gap-6 lg:ml-10">
+      <!-- Step 1 -->
+      <div class="flex items-start gap-4">
+        <div class="w-16 h-16 bg-[#A6BDFF] flex items-center justify-center text-white font-bold text-xl rounded-md">
+          1
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-white">Connect With US</h3>
+          <p class="text-sm text-gray-200">Let’s connect and create solutions tailored to your needs.</p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex items-start gap-4">
+        <div class="w-16 h-16 bg-[#A6BDFF] flex items-center justify-center text-white font-bold text-xl rounded-md">
+          2
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-white">Add a Task</h3>
+          <p class="text-sm text-gray-200">Provide your details with us to begin the journey toward your tailored solution.</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex items-start gap-4">
+        <div class="w-16 h-16 bg-[#A6BDFF] flex items-center justify-center text-white font-bold text-xl rounded-md">
+          3
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-white">Enjoy Results</h3>
+          <p class="text-sm text-gray-200">Receive your completed tasks in 2-4 business days..</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== LET'S TALK SECTION ===== -->
+<section id="talk" class="text-white py-20 px-6 md:px-12 lg:px-24 space-y-20">
+  <div class="max-w-6xl mx-auto text-center space-y-12">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white">Let’s talk!</h2>
+
+    <div class="grid md:grid-cols-2 items-center gap-8 text-left">
+      <!-- Image -->
+      <div class="flex justify-center md:justify-start">
+        <img src="assets/talk.png" alt="" class="w-80 md:w-96">
+      </div>
+
+      <!-- Contact Form -->
+      <div>
+        <p class="text-gray-300 mb-1">
+          Get in touch with us using the enquiry form or contact details below.
+        </p>
+        <hr
+          class="w-full border-t-2 border-blue-400/40 rounded-full shadow-[0_0_10px_rgba(100,139,255,0.5)] my-4"
+        />
+
+        <form (submit)="sendEmail(); $event.preventDefault()" class="space-y-4">
+          <input
+            type="text"
+            placeholder="Name"
+            [(ngModel)]="formData.name"
+            name="name"
+            class="w-full bg-transparent border border-white/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-blue-400"
+            required
+          />
+
+          <input
+            type="email"
+            placeholder="Email"
+            [(ngModel)]="formData.email"
+            name="email"
+            class="w-full bg-transparent border border-white/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-blue-400"
+            required
+          />
+
+          <textarea
+            placeholder="Type something..."
+            rows="4"
+            [(ngModel)]="formData.message"
+            name="message"
+            class="w-full bg-transparent border border-white/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-blue-400"
+            required
+          ></textarea>
+
+          <button
+            type="submit"
+            class="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-2 rounded-md font-medium hover:opacity-90 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== FOOTER SECTION ===== -->
+<footer
+  class="w-screen bg-gradient-to-r from-[#000000] via-[#1a1a1a80] to-[#D9D9D900] py-10 mt-20 border-t border-white/10 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8">
+
+    <!-- Logo Section -->
+    <div class="flex-1">
+      <div class="flex flex-col items-center justify-center space-x-2">
+        <img src="assets/Logo.png" alt="Logo" class="h-12 md:h-16">
+      </div>
+      <br>
+
+      <p class="text-white/70 text-sm leading-relaxed">
+        We are a forward-thinking digital company focused on delivering creative and
+        conversion-driven solutions. From strategy to execution, we help brands thrive.
+      </p>
+    </div>
+
+    <!-- Services Section -->
+    <div class="flex-1">
+      <h3 class="text-white text-lg font-semibold mb-3">Services</h3>
+      <ul class="text-white/70 space-y-2 text-sm">
+        <li>Mobile App Development</li>
+        <li>Website Design</li>
+        <li>UI/UX Design</li>
+        <li>Brand Strategy</li>
+         <li>Social Media Marketing</li>
+         <li>Web Development</li>
+         
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="flex-1">
+      <h3 class="text-white text-lg font-semibold mb-3">Contact Info</h3>
+      <ul class="text-white/70 space-y-2 text-sm">
+        <li>Email: info&#64;devxpire.com</li>
+        <li>Address: Lahore, Pakistan</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="text-center text-white/50 text-xs mt-8 border-t border-white/10 pt-4">
+    ©2025 DevXpire. All Rights Reserved.
+  </div>
+</footer>

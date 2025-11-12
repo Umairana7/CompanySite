@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  @apply bg-[#02113F];
+ }
+.animated-heading {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: #fff; /* Base fallback color */
+  animation: textMove 3s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.animated-gradient {
+  display: inline-block;
+  background: linear-gradient(270deg, #3b82f6, #a855f7, #ec4899, #22d3ee);
+  background-size: 600% 600%;
+  animation: glow 6s ease infinite, textMove 3s ease-in-out infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  /* ADD THIS TO FIX BLUR SEE-THROUGH */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4),
+               0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+@keyframes textMove {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes glow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* Reuse the same floating motion as text */
+@keyframes floatMove {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animated-button {
+  animation: floatMove 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Add glow effect on hover */
+.animated-button:hover {
+  box-shadow: 0 0 15px rgba(99, 126, 255, 0.6),
+              0 0 30px rgba(99, 126, 255, 0.4);
+  transform: translateY(-6px) scale(1.05);
+}
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 4px rgba(59,130,246,0.4));
+  }
+  25% {
+    transform: translateY(-6px) rotate(5deg) scale(1.05);
+    filter: drop-shadow(0 0 8px rgba(168,85,247,0.6));
+  }
+  50% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 10px rgba(236,72,153,0.7));
+  }
+  75% {
+    transform: translateY(6px) rotate(-5deg) scale(0.95);
+    filter: drop-shadow(0 0 6px rgba(34,211,238,0.6));
+  }
+}
+
+.logo-animate {
+  animation: logoFloat 6s ease-in-out infinite;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+/* Hover effect: adds spin and neon pulse */
+.logo-animate:hover {
+  animation-play-state: paused; /* pauses the floating */
+  transform: rotate(360deg) scale(1.2);
+  filter: drop-shadow(0 0 15px rgba(59,130,246,0.8))
+          drop-shadow(0 0 30px rgba(236,72,153,0.6));
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}

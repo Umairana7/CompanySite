@@ -1,0 +1,319 @@
+<nav class=" fixed top-0 left-0 w-full z-50 px-8 flex items-center justify-between min-h-[70px] bg-[#030b3d] border-b border-white/40 ">
+  <!-- Logo -->
+  <div class="flex items-center space-x-2">
+    <img src="assets/Logo.png" alt="Logo" class=" h-6">
+  </div>
+
+  <!-- Hamburger Button (Mobile) -->
+  <button id="menu-btn" class="text-white md:hidden focus:outline-none flex items-center"
+    onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- Desktop Menu -->
+  <ul class="hidden md:flex items-center space-x-6 text-white text-xs">
+   
+    <li>
+      <button routerLink="/" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px]
+         after:bg-blue-400 after:left-0 after:-bottom-1 after:transition-all
+         after:duration-300 hover:after:w-full text-white bg-transparent border-none outline-none cursor-pointer">
+        Home
+      </button>
+    </li>
+    <li>
+      <a routerLink="/service" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px]
+               after:bg-blue-400 after:left-0 after:-bottom-1 after:transition-all
+               after:duration-300 hover:after:w-full">
+        Services
+      </a>
+    </li>
+    <li>
+      <button routerLink="/about" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px]
+         after:bg-blue-400 after:left-0 after:-bottom-1 after:transition-all
+         after:duration-300 hover:after:w-full text-white bg-transparent border-none outline-none cursor-pointer">
+        About Us
+      </button>
+    </li>
+     <li>
+      <a href="#Work-section" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px]
+               after:bg-blue-400 after:left-0 after:-bottom-1 after:transition-all
+               after:duration-300 hover:after:w-full">
+        Why Us
+      </a>
+    </li>
+  </ul>
+
+  <!-- Button -->
+  <button (click)="scrollToSection('talk')" class="hidden md:block bg-[#637eff] hover:bg-[#7894ff] text-white text-xs
+           px-4 py-2 rounded transition duration-300 transform hover:-translate-y-1
+           hover:shadow-lg hover:shadow-blue-500/40" style="
+    background: linear-gradient(90deg, #0C2984 0%, #67BFDF 100%);
+  ">
+    Contact Us
+  </button>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#030b3d] text-white
+           flex flex-col items-center space-y-4 py-4 md:hidden z-50">
+    <a href="#" class="hover:text-blue-400">How it works</a>
+    <a href="#" class="hover:text-blue-400">Services</a>
+    <a routerLink='/about' class="hover:text-blue-400">About Us</a>
+    <button class="text-white px-6 py-3 rounded-md font-medium transition-all shadow-md hover:shadow-lg" style="
+    background: linear-gradient(90deg, #0C2984 0%, #67BFDF 100%);
+  ">
+      Contact Us
+    </button>
+  </div>
+
+</nav>
+<!-- ===== WHO WE ARE SECTION ===== -->
+<section
+  class="relative bg-cover bg-center bg-no-repeat text-white py-24 px-6 md:px-20"
+  style="background-image: url('assets/servicebg.png');"
+>
+  <!-- Blue Overlay -->
+  <div class="absolute inset-0 bg-[#0b1135]/80"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6">Our Experties</h2>
+
+    <p class="text-gray-300 leading-relaxed mb-4">
+     We’re a creative digital agency turning ideas into impactful brands and digital experiences.
+    </p>
+
+    <p class="text-gray-300 leading-relaxed mb-4">
+     At DevXpire, we offer a full range of creative and digital solutions designed to help brands grow, connect, and stand out.
+    </p>
+
+    <p class="text-gray-300 leading-relaxed mb-10">
+      From design to development, we turn ideas into impactful experiences that drive results.
+    </p>
+
+   <button (click)="scrollToSection('talk')"
+  class="text-white px-6 py-3 rounded-md font-medium transition-all shadow-md hover:shadow-lg"
+  style="
+    background: linear-gradient(90deg, #0C2984 0%, #67BFDF 100%);
+  "
+>
+  Let's work together
+</button>
+  </div>
+</section>
+
+
+
+
+<!-- ===== SERVICES SECTION ===== -->
+<section class="bg-[#0b1135] text-white py-16 px-6 md:px-20">
+  <h2 class="text-3xl md:text-4xl font-semibold mb-10 text-center">Services</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <!-- 1 -->
+    <div class="border border-white/30 rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+      <img src="assets/service1.png" alt="UI UX" class="mx-auto mb-4 w-10 h-10" />
+      <h3 class="text-lg font-semibold mb-2">UI UX Design</h3>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        We craft seamless, user-focused designs that blend creativity with functionality.
+      </p>
+    </div>
+    <!-- 2 -->
+    <div class="border border-white/30 rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+      <img src="assets/service2.png" alt="Brand" class="mx-auto mb-4 w-10 h-10" />
+      <h3 class="text-lg font-semibold mb-2">Brand & Identity</h3>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        We build unique brand identities that inspire trust and leave a lasting impression.
+      </p>
+    </div>
+    <!-- 3 -->
+    <div class="border border-white/30 rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+      <img src="assets/Group.png" alt="Web Development" class="mx-auto mb-4 w-10 h-10" />
+      <h3 class="text-lg font-semibold mb-2">Web Development</h3>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        We create responsive, high-performing websites that elevate your digital presence.
+      </p>
+    </div>
+    <!-- 4 -->
+    <div class="border border-white/30 rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+      <img src="assets/group2.png" alt="Mobile" class="mx-auto mb-4 w-10 h-10" />
+      <h3 class="text-lg font-semibold mb-2">Mobile App Development</h3>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        We design and develop intuitive mobile apps that engage and empower users.
+      </p>
+    </div>
+    <!-- 5 -->
+    <div class="border border-white/30 rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+      <img src="assets/service3.png" alt="Digital Marketing" class="mx-auto mb-4 w-10 h-10" />
+      <h3 class="text-lg font-semibold mb-2">Digital Marketing</h3>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        We help brands grow online with data-driven strategies and creative campaigns.
+      </p>
+    </div>
+    <!-- 6 -->
+    <div class="border border-white/30 rounded-xl p-8 text-center hover:bg-white/10 transition-all">
+      <img src="assets/service4.png" alt="Custom Development" class="mx-auto mb-4 w-10 h-10" />
+      <h3 class="text-lg font-semibold mb-2">Custom Development</h3>
+      <p class="text-gray-300 text-sm leading-relaxed">
+        We deliver tailored digital solutions built around your business needs and goals.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INDUSTRIES SECTION ===== -->
+<section class="bg-gradient-to-b from-[#0d1240] to-[#1a2a6c] text-white py-16 px-6 md:px-20 text-center">
+  
+  <h2 class="text-3xl md:text-4xl font-semibold mb-6">Industries We Serve</h2>
+
+  <p class="text-gray-300 max-w-3xl mx-auto mb-4 leading-relaxed">
+    We're a creative digital agency turning ideas into impactful brands and digital experiences.
+  </p>
+  <p class="text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+    We've collaborated with businesses across diverse sectors from tech startups to healthcare providers and financial institutions.
+  </p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+    <!-- 1 -->
+    <div class="bg-white text-[#0b1135] rounded-xl p-8 shadow-lg hover:scale-105 transition-all">
+      <img src="assets/vector13.png" alt="Tech" class="mx-auto mb-4 w-10 h-10" />
+      <h3 class="font-semibold text-lg mb-2">Tech & Startups</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">
+        Empowering innovation through smart digital solutions.
+      </p>
+    </div>
+    <!-- 2 -->
+    <div class="bg-white text-[#0b1135] rounded-xl p-8 shadow-lg hover:scale-105 transition-all">
+      <img src="assets/vector10.png" alt="Healthcare" class="mx-auto mb-4 w-10 h-10" />
+      <h3 class="font-semibold text-lg mb-2">Healthcare</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">
+        Delivering creative technology that supports care and wellness.
+      </p>
+    </div>
+    <!-- 3 -->
+    <div class="bg-white text-[#0b1135] rounded-xl p-8 shadow-lg hover:scale-105 transition-all">
+      <img src="assets/vector11.png" alt="Finance" class="mx-auto mb-4 w-10 h-10" />
+      <h3 class="font-semibold text-lg mb-2">Corporate & Finance</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">
+        Building secure, reliable, and growth-focused digital platforms.
+      </p>
+    </div>
+    <!-- 4 -->
+    <div class="bg-white text-[#0b1135] rounded-xl p-8 shadow-lg hover:scale-105 transition-all">
+      <img src="assets/vector12.png" alt="E-commerce" class="mx-auto mb-4 w-10 h-10" />
+      <h3 class="font-semibold text-lg mb-2">E-commerce</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">
+        Creating seamless online experiences that drive sales and engagement.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="talk" class="text-white py-20 px-6 md:px-12 lg:px-24 space-y-20">
+  <div class="max-w-6xl mx-auto text-center space-y-12">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white">Let’s talk!</h2>
+
+    <div class="grid md:grid-cols-2 items-center gap-8 text-left">
+      <!-- Image -->
+      <div class="flex justify-center md:justify-start">
+        <img src="assets/talk.png" alt="" class="w-80 md:w-96">
+      </div>
+
+      <!-- Contact Form -->
+      <div>
+        <p class="text-gray-300 mb-1">
+          Get in touch with us using the enquiry form or contact details below.
+        </p>
+        <hr
+          class="w-full border-t-2 border-blue-400/40 rounded-full shadow-[0_0_10px_rgba(100,139,255,0.5)] my-4"
+        />
+
+        <form (submit)="sendEmail(); $event.preventDefault()" class="space-y-4">
+          <input
+            type="text"
+            placeholder="Name"
+            [(ngModel)]="formData.name"
+            name="name"
+            class="w-full bg-transparent border border-white/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-blue-400"
+            required
+          />
+
+          <input
+            type="email"
+            placeholder="Email"
+            [(ngModel)]="formData.email"
+            name="email"
+            class="w-full bg-transparent border border-white/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-blue-400"
+            required
+          />
+
+          <textarea
+            placeholder="Type something..."
+            rows="4"
+            [(ngModel)]="formData.message"
+            name="message"
+            class="w-full bg-transparent border border-white/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-blue-400"
+            required
+          ></textarea>
+
+          <button
+            type="submit"
+            class="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-2 rounded-md font-medium hover:opacity-90 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🐐 FOOTER PLACEHOLDER -->
+ <footer class="w-screen bg-gradient-to-r from-[#000000] via-[#1a1a1a80] to-[#D9D9D900] py-10 mt-20 border-t border-white/10 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8">
+    
+    <!-- Logo Section -->
+    <div class="flex-1">
+     <div class="flex flex-col items-center justify-center space-x-2">
+    <img src="assets/Logo.png" alt="Logo" class=" h-12 md:h-16">
+  </div>
+  <br>
+  
+      <p class="text-white/70 text-sm leading-relaxed">
+        We are a forward-thinking digital company focused on delivering creative and
+        conversion-driven solutions. From strategy to execution, we help brands thrive.
+      </p>
+    </div>
+
+    <!-- Services Section -->
+    <div class="flex-1">
+      <h3 class="text-white text-lg font-semibold mb-3">Services</h3>
+      <ul class="text-white/70 space-y-2 text-sm">
+        <li>Mobile App Development</li>
+        <li>Website Design</li>
+        <li>UI/UX Design</li>
+        <li>Brand Strategy</li>
+         <li>Social Media Marketing</li>
+         <li>Web Development</li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="flex-1">
+      <h3 class="text-white text-lg font-semibold mb-3">Contact Info</h3>
+      <ul class="text-white/70 space-y-2 text-sm">
+        <li>Email: info&#64;devxpire.com</li>
+      
+        <li>Address: Lahore, Pakistan</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="text-center text-white/50 text-xs mt-8 border-t border-white/10 pt-4">
+    ©2025 DevXpire. All Rights Reserved.
+  </div>
+</footer>
