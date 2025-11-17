@@ -58,10 +58,10 @@
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#030b3d] text-white
            flex flex-col items-center space-y-4 py-4 md:hidden z-50">
-    <a href="#" class="hover:text-blue-400">How it works</a>
-    <a href="#" class="hover:text-blue-400">Services</a>
+    <a routerLink='/' class="hover:text-blue-400"> Home </a>
+    <a routerLink='/service' class="hover:text-blue-400">Services</a>
     <a routerLink='/about' class="hover:text-blue-400">About Us</a>
-    <button class="text-white px-6 py-3 rounded-md font-medium transition-all shadow-md hover:shadow-lg" style="
+    <button (click)="scrollToSection('talk')"  class="text-white px-6 py-3 rounded-md font-medium transition-all shadow-md hover:shadow-lg" style="
     background: linear-gradient(90deg, #0C2984 0%, #67BFDF 100%);
   ">
       Contact Us
@@ -71,9 +71,10 @@
 </nav>
 
 
+
 <!-- 💻 Hero Section -->
 <section
-  class="relative flex flex-col md:flex-row items-center justify-between min-h-[80vh] md:min-h-screen text-white w-screen overflow-hidden"
+  class=" pt-[80px] relative flex flex-col md:flex-row items-center justify-between min-h-[80vh] md:min-h-screen text-white w-screen overflow-hidden"
   style="background-color: #648BFF1A;"
 >
   <!-- Centered Ellipse (fixed size) -->
@@ -232,10 +233,11 @@
         <div class="h-10 w-[1px] bg-white/40"></div>
 
         <!-- Card 3 -->
-        <div class="flex-1 flex flex-col items-center justify-center p-4">
-          <h2 class="count text-xl font-bold text-white" data-target="99">99%</h2>
-          <p class="text-white text-sm text-center">Success Rate</p>
-        </div>
+       <div class="flex-1 flex flex-col items-center justify-center p-4">
+  <h2 class="count text-xl font-bold text-white" data-target="99%">0%</h2>
+  <p class="text-white text-sm text-center">Success Rate</p>
+</div>
+
       </div>
     </div>
   </div>
@@ -473,7 +475,7 @@
         </div>
         <div>
           <h3 class="font-semibold text-lg text-white">Add a Task</h3>
-          <p class="text-sm text-gray-200">Provide your details with us to begin the journey toward your tailored solution.</p>
+          <p class="text-sm text-gray-200">Provide your details with us to begin  tailored solution.</p>
         </div>
       </div>
 
@@ -484,7 +486,7 @@
         </div>
         <div>
           <h3 class="font-semibold text-lg text-white">Enjoy Results</h3>
-          <p class="text-sm text-gray-200">Receive your completed tasks in 2-4 business days..</p>
+          <p class="text-sm text-gray-200">Receive your completed tasks in 2-4 business days.</p>
         </div>
       </div>
     </div>
@@ -557,10 +559,9 @@
     <!-- Logo Section -->
     <div class="flex-1">
       <div class="flex flex-col items-center justify-center space-x-2">
-        <img src="assets/Logo.png" alt="Logo" class="h-12 md:h-16">
+        <img src="assets/Logo.png" alt="Logo" class=" h-12 md:h-16">
       </div>
       <br>
-
       <p class="text-white/70 text-sm leading-relaxed">
         We are a forward-thinking digital company focused on delivering creative and
         conversion-driven solutions. From strategy to execution, we help brands thrive.
@@ -575,19 +576,48 @@
         <li>Website Design</li>
         <li>UI/UX Design</li>
         <li>Brand Strategy</li>
-         <li>Social Media Marketing</li>
-         <li>Web Development</li>
-         
+        <li>Social Media Marketing</li>
+        <li>Web Development</li>
       </ul>
     </div>
 
-    <!-- Contact Info -->
+    <!-- Contact Info + Social Icons -->
     <div class="flex-1">
       <h3 class="text-white text-lg font-semibold mb-3">Contact Info</h3>
       <ul class="text-white/70 space-y-2 text-sm">
         <li>Email: info&#64;devxpire.com</li>
         <li>Address: Lahore, Pakistan</li>
       </ul>
+
+      <!-- Social Media Links below contact info -->
+      <div class="flex space-x-4 mt-4">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/devxpire/" target="_blank" rel="noopener noreferrer"
+           class="text-white hover:text-blue-500 transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.27h-3v-5.604c0-1.338-.026-3.064-1.868-3.064-1.868 0-2.154 1.459-2.154 2.969v5.699h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.562 2.839-1.562 3.036 0 3.597 2 3.597 4.594v5.601z" />
+          </svg>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/share/1Gm2V57E4h/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"
+           class="text-white hover:text-blue-700 transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M22.675 0h-21.35c-.733 0-1.325.592-1.325 1.325v21.351c0 .733.592 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.672c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.099 2.795.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.762v2.309h3.587l-.467 3.622h-3.12v9.293h6.116c.732 0 1.324-.591 1.324-1.324v-21.35c0-.733-.592-1.325-1.324-1.325z" />
+          </svg>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/devxpire?igsh=MXA0YXNwaXU3N3Z3ZQ==" target="_blank" rel="noopener noreferrer"
+           class="text-white hover:text-pink-500 transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.336 3.608 1.31.975.975 1.248 2.242 1.31 3.608.058 1.265.069 1.645.069 4.849s-.012 3.584-.07 4.849c-.062 1.366-.336 2.633-1.31 3.608-.975.975-2.242 1.248-3.608 1.31-1.265.058-1.645.069-4.849.069s-3.584-.012-4.849-.07c-1.366-.062-2.633-.336-3.608-1.31-.975-.975-1.248-2.242-1.31-3.608-.058-1.265-.069-1.645-.069-4.849s.012-3.584.07-4.849c.062-1.366.336-2.633 1.31-3.608.975-.975 2.242-1.248 3.608-1.31 1.265-.058 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-1.519.07-2.865.336-3.89 1.361-1.025 1.025-1.291 2.371-1.361 3.89-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.07 1.519.336 2.865 1.361 3.89 1.025 1.025 2.371 1.291 3.89 1.361 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.519-.07 2.865-.336 3.89-1.361 1.025-1.025 1.291-2.371 1.361-3.89.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.07-1.519-.336-2.865-1.361-3.89-1.025-1.025-2.371-1.291-3.89-1.361-1.28-.058-1.688-.072-4.947-.072zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0-2.881 1.44 1.44 0 0 0 0 2.881z" />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -595,3 +625,4 @@
     ©2025 DevXpire. All Rights Reserved.
   </div>
 </footer>
+

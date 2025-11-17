@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, RouterLink, LottieComponent,FormsModule],
+  imports: [RouterModule, RouterLink, LottieComponent,FormsModule],
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
@@ -25,6 +25,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
   words: string[] = ['Unlimited', 'Fast', 'Instant'];
   currentWord: string = this.words[0];
   index: number = 0;
+mobileMenuOpen = false;
 
   constructor(private router: Router) {}
 
@@ -130,12 +131,19 @@ export class LandingComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/about']);
   }
 
-  scrollToSection(sectionId: string) {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+scrollToSection(sectionId: string) {
+  const el = document.getElementById(sectionId);
+  if (el) {
+    // Scroll smoothly to the element
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  this.mobileMenuOpen = false;
+    // Remove hash from URL without reloading
+    history.replaceState(null, '', window.location.pathname + window.location.search);
   }
+}
+
+
+
   sendEmail() {
     emailjs.init('pxInjNnyjCaO8IaiZ'); // ⬅️ Replace with your EmailJS Public Key
 

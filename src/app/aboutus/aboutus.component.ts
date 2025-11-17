@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-aboutus',
   standalone: true,
-  imports: [AppComponent, RouterOutlet, RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule],
   templateUrl: './aboutus.component.html',
   styleUrl: './aboutus.component.css'
 })
@@ -17,13 +17,22 @@ export class AboutusComponent {
     email: '',
     message: ''
   };
-
- scrollToSection(sectionId: string) {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+ mobileMenuOpen = false;
+scrollToSection(sectionId: string) {
+  const el = document.getElementById(sectionId);
+  if (el) {
+    // Scroll smoothly to the element
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+this.mobileMenuOpen = false;
+    // Remove hash from URL without reloading
+    history.replaceState(null, '', window.location.pathname + window.location.search);
   }
+}
+
+
+
+
+
   sendEmail() {
     emailjs.init('pxInjNnyjCaO8IaiZ'); // ⬅️ Replace with your EmailJS Public Key
 

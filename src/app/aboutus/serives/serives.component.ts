@@ -19,14 +19,23 @@ export class SerivesComponent {
     email: '',
     message: ''
   };
+mobileMenuOpen = false;
 
   // ✅ Scroll to section method (your original one)
-  scrollToSection(sectionId: string) {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+scrollToSection(sectionId: string) {
+  const el = document.getElementById(sectionId);
+  if (el) {
+    // Scroll smoothly to the element
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.mobileMenuOpen= false;
+    // Remove hash from URL without reloading
+    history.replaceState(null, '', window.location.pathname + window.location.search);
   }
+}
+
+
+
+
 
   // ✅ Send Email using EmailJS
   sendEmail() {

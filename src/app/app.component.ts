@@ -1,16 +1,26 @@
-import { AfterViewInit, Component } from '@angular/core';
-import { Router, RouterLink, RouterOutlet, } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { LottieComponent } from 'ngx-lottie';
-import { AnimationOptions } from 'ngx-lottie';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LottieComponent,RouterLink,AboutusComponent], // 👈 Lottie import yahan
+  imports: [RouterOutlet, LottieComponent, RouterLink, AboutusComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent  {
- 
+export class AppComponent implements OnInit {
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    // Scroll to top on every navigation
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  }
 }
